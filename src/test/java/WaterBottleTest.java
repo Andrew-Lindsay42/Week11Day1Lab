@@ -3,11 +3,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class WaterBottleTest {
-    WaterBottle bottle;
+     WaterBottle bottle;
 
     @Before
     public void before() {
-        bottle = new Bottle();
+        bottle = new WaterBottle();
     }
 
     @Test
@@ -28,9 +28,16 @@ public class WaterBottleTest {
     }
 
     @Test
+    public void cannotDrinkIfBottleEmpty(){
+        bottle.empty();
+        bottle.drink();
+        assertEquals(0, bottle.getVolume());
+    }
+
+    @Test
     public void canFill(){
         bottle.empty();
-        bottle.fill
+        bottle.fill();
         assertEquals(100, bottle.getVolume());
     }
 
